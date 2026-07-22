@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#090b14" />
+    <meta
+      name="description"
+      content="Google Web Game Samples の Phaser・PixiJS・Plain HTML デモをブラウザで遊べるランチャー"
+    />
+    <title>Web Game Samples Playground</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <div class="aurora aurora-one" aria-hidden="true"></div>
+    <div class="aurora aurora-two" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <a class="brand" href="./" aria-label="トップへ戻る">
+        <span class="brand-mark" aria-hidden="true">▶</span>
+        <span>Web Game Samples</span>
+      </a>
+      <a
+        class="source-link"
+        href="https://github.com/google/web-game-samples"
+        target="_blank"
+        rel="noreferrer"
+      >
+        upstream を見る
+        <span aria-hidden="true">↗</span>
+      </a>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="eyebrow"><span class="pulse"></span> BROWSER PLAYGROUND</div>
+        <h1 id="hero-title">3つのWebゲームデモを、<br /><span>すぐにプレイ。</span></h1>
+        <p class="hero-copy">
+          Google の <code>web-game-samples</code> から、ブラウザで直接動かせる
+          Phaser・PixiJS・Vanilla Canvas のサンプルをプロダクションビルドしました。
+        </p>
+        <div class="hero-meta" aria-label="公開情報">
+          <span><strong>3</strong> demos</span>
+          <span><strong>0</strong> installs required</span>
+          <span id="build-status"><strong>●</strong> build info loading</span>
+        </div>
+      </section>
+
+      <section class="game-grid" aria-label="ゲーム一覧">
+        <article class="game-card featured">
+          <div class="card-visual phaser-visual" aria-hidden="true">
+            <div class="court-lines"></div>
+            <div class="ball">●</div>
+            <span class="visual-label">PHASER 3</span>
+          </div>
+          <div class="card-body">
+            <div class="card-heading">
+              <div>
+                <p class="framework">Phaser 3 + Vite</p>
+                <h2>Basketball Shoot Out</h2>
+              </div>
+              <span class="badge">GAME</span>
+            </div>
+            <p>ポインター操作でボールを放ち、ゴールを狙う Phaser のプレイアブルサンプルです。</p>
+            <div class="controls"><span>マウス</span><span>タッチ</span><span>サウンド</span></div>
+            <div class="card-actions">
+              <button class="play-button" type="button" data-play="phaser">
+                <span aria-hidden="true">▶</span> ページ内で遊ぶ
+              </button>
+              <a href="./demos/phaser/" target="_blank" rel="noreferrer" aria-label="Phaserデモを新しいタブで開く">↗</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="game-card">
+          <div class="card-visual pixi-visual" aria-hidden="true">
+            <div class="pixel-cube cube-one"></div>
+            <div class="pixel-cube cube-two"></div>
+            <span class="visual-label">PIXIJS 8</span>
+          </div>
+          <div class="card-body">
+            <div class="card-heading">
+              <div>
+                <p class="framework">PixiJS 8 + TypeScript</p>
+                <h2>Playables SDK Demo</h2>
+              </div>
+              <span class="badge">SDK</span>
+            </div>
+            <p>PixiJS の描画、アセット管理、オーディオと Playables SDK の接続例を試せます。</p>
+            <div class="controls"><span>マウス</span><span>タッチ</span><span>サウンド</span></div>
+            <div class="card-actions">
+              <button class="play-button" type="button" data-play="pixijs">
+                <span aria-hidden="true">▶</span> ページ内で遊ぶ
+              </button>
+              <a href="./demos/pixijs/" target="_blank" rel="noreferrer" aria-label="PixiJSデモを新しいタブで開く">↗</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="game-card">
+          <div class="card-visual plain-visual" aria-hidden="true">
+            <div class="spiral-ring ring-one"></div>
+            <div class="spiral-ring ring-two"></div>
+            <div class="spiral-ring ring-three"></div>
+            <span class="visual-label">VANILLA WEB</span>
+          </div>
+          <div class="card-body">
+            <div class="card-heading">
+              <div>
+                <p class="framework">HTML + JavaScript + CSS</p>
+                <h2>Canvas Integration Demo</h2>
+              </div>
+              <span class="badge">CANVAS</span>
+            </div>
+            <p>依存関係なしの Canvas アニメーション、入力、音声、保存処理の基本例です。</p>
+            <div class="controls"><span>マウス</span><span>タッチ</span><span>サウンド</span></div>
+            <div class="card-actions">
+              <button class="play-button" type="button" data-play="plain">
+                <span aria-hidden="true">▶</span> ページ内で遊ぶ
+              </button>
+              <a href="./demos/plain/" target="_blank" rel="noreferrer" aria-label="Plain HTMLデモを新しいタブで開く">↗</a>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="notes" aria-labelledby="notes-title">
+        <div>
+          <p class="eyebrow">ABOUT THIS BUILD</p>
+          <h2 id="notes-title">元コードはそのまま。公開用にだけ最適化。</h2>
+        </div>
+        <p>
+          Phaser と PixiJS は upstream のロックファイルを使って GitHub Actions 上でビルドし、
+          各 Vite 設定の相対パスを保ったままサブディレクトリへ配置しています。
+          音声はブラウザの自動再生制限により、最初のクリック後に始まる場合があります。
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <span>Built from Google Web Game Samples</span>
+      <span id="build-detail">upstream revision: loading…</span>
+    </footer>
+
+    <dialog class="player-dialog" id="player-dialog">
+      <div class="player-shell">
+        <div class="player-toolbar">
+          <div>
+            <span class="live-dot"></span>
+            <strong id="player-title">Demo</strong>
+          </div>
+          <div class="toolbar-actions">
+            <a id="external-link" href="./" target="_blank" rel="noreferrer">新しいタブ ↗</a>
+            <button id="fullscreen-button" type="button" aria-label="全画面表示">⛶</button>
+            <button id="close-button" type="button" aria-label="閉じる">×</button>
+          </div>
+        </div>
+        <iframe
+          id="game-frame"
+          title="ゲームデモ"
+          allow="autoplay; fullscreen; gamepad"
+          referrerpolicy="strict-origin-when-cross-origin"
+        ></iframe>
+      </div>
+    </dialog>
+  </body>
+</html>
