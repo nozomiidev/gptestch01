@@ -43,6 +43,26 @@ jobs:
             upstream/phaser/package-lock.json
             upstream/pixijs/package-lock.json
 
+      - name: Make PixiJS web-font loading non-fatal
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path("upstream/pixijs/src/main.ts")
+          text = path.read_text(encoding="utf-8")
+          original = 'new FontFaceObserver("Pixelify Sans").load(),'
+          replacement = (
+              'new FontFaceObserver("Pixelify Sans")'
+              '.load(undefined, 1500)'
+              '.catch(() => undefined),'
+          )
+          if original not in text:
+              raise SystemExit("Expected PixiJS font-loading expression was not found")
+          path.write_text(text.replace(original, replacement, 1), encoding="utf-8")
+          PY
+
       - name: Build Phaser demo
         working-directory: upstream/phaser
         run: |
