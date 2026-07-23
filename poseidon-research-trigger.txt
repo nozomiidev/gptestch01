@@ -1,1 +1,1 @@
-Trigger exact Poseidon q=4 experiment, run 3 with PR result.
+Trigger scalable Poseidon verifier-collision experiment.
