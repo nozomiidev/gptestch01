@@ -1,0 +1,35 @@
+name: Poseidon q4 verifier block audit
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  search:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Pin the unmodified official verifier
+        run: |
+          git clone https://github.com/khovratovich/poseidon-tools.git official_poseidon_tools
+          git -C official_poseidon_tools checkout 60075da7c0521d9493749a035b1f30d4eda37138
+          test "$(git -C official_poseidon_tools rev-parse HEAD)" = "60075da7c0521d9493749a035b1f30d4eda37138"
+      - name: Search and verify
+        run: python -u research/poseidon_q4/block_verifier_search.py
+      - name: Commit exact result
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add research/poseidon_q4/block_verifier_result.json
+          git diff --cached --quiet && exit 0
+          git commit -m 'Record verifier block audit result [skip ci]'
+          git push origin HEAD:${{ github.head_ref }}
