@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - '.github/workflows/poseidon-q4-research.yml'
+  pull_request:
   workflow_dispatch:
 
 jobs:
@@ -47,7 +48,6 @@ jobs:
           n = COLLISION_TPERM
 
           def companion_axb(a: int, b: int):
-              # Frobenius companion matrix for f(x)=x^16+a*x+b.
               M = [[0] * n for _ in range(n)]
               for i in range(n - 1):
                   M[i][i + 1] = 1
@@ -64,9 +64,6 @@ jobs:
                   }
               return sorted(supp)
 
-          # Search sparse companion matrices.  The first irreducible trinomial
-          # almost always has all powers 1..32 of full degree 16, which is exactly
-          # the verifier's early-accept condition.
           rng = random.Random(0xC09DE4)
           candidates = [(a, 1) for a in range(1, 200)]
           candidates += [(rng.randrange(1, p), rng.randrange(1, p)) for _ in range(500)]
@@ -94,8 +91,6 @@ jobs:
           a, b, M, support = found
           X = [0] * 15
           Y = [0] * 15
-          # Full-state coordinate 4 is message coordinate 3 because coordinate 0
-          # is the fixed verifier seed.
           Y[3] = 1
 
           ok = verify_collision_solution(
