@@ -1,0 +1,1880 @@
+{
+  "parameters": {
+    "alpha": 3,
+    "p": 2130706433,
+    "rf": 8,
+    "rp": 20,
+    "seed": 12623332,
+    "t": 16
+  },
+  "default_krylov_ranks": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    16,
+    16,
+    16,
+    16,
+    16,
+    16,
+    16,
+    16,
+    16,
+    16,
+    16,
+    16,
+    16,
+    16,
+    16,
+    16
+  ],
+  "plonky3_krylov_ranks": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    16,
+    16,
+    16,
+    16,
+    16,
+    16,
+    16,
+    16,
+    16,
+    16,
+    16,
+    16,
+    16,
+    16,
+    16,
+    16
+  ],
+  "q3_hash_x": [
+    776343852,
+    1993637744,
+    983127350,
+    723497874,
+    1870564443,
+    1236899277,
+    1295220875,
+    375350659,
+    1792462317,
+    1742859931,
+    1267764620,
+    346888079,
+    634341790,
+    1430181659,
+    1086732101,
+    487578134
+  ],
+  "q3_hash_y": [
+    776343852,
+    1993637744,
+    983127350,
+    89710067,
+    1134174587,
+    676359138,
+    330209520,
+    1010810491,
+    493181688,
+    1778648662,
+    1273901359,
+    942078284,
+    1304049704,
+    767877819,
+    183331809,
+    564188292
+  ],
+  "q3_verify": true,
+  "q4_verify_known_pair": false,
+  "partial_supports_default": {
+    "0": {
+      "best": [
+        {
+          "active": [],
+          "nullities_raw_in4_out4_both4": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "count": 1,
+      "histogram": {
+        "(0, 0, 0, 0)": 1
+      },
+      "seconds": 0.020699739456176758
+    },
+    "1": {
+      "best": [
+        {
+          "active": [
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            1,
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "active": [
+            0
+          ],
+          "nullities_raw_in4_out4_both4": [
+            1,
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "active": [
+            18
+          ],
+          "nullities_raw_in4_out4_both4": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "active": [
+            17
+          ],
+          "nullities_raw_in4_out4_both4": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "active": [
+            16
+          ],
+          "nullities_raw_in4_out4_both4": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "active": [
+            15
+          ],
+          "nullities_raw_in4_out4_both4": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "active": [
+            14
+          ],
+          "nullities_raw_in4_out4_both4": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "active": [
+            13
+          ],
+          "nullities_raw_in4_out4_both4": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "active": [
+            12
+          ],
+          "nullities_raw_in4_out4_both4": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "active": [
+            11
+          ],
+          "nullities_raw_in4_out4_both4": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "active": [
+            10
+          ],
+          "nullities_raw_in4_out4_both4": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "active": [
+            9
+          ],
+          "nullities_raw_in4_out4_both4": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "count": 20,
+      "histogram": {
+        "(0, 0, 0, 0)": 18,
+        "(1, 0, 1, 0)": 1,
+        "(1, 1, 0, 0)": 1
+      },
+      "seconds": 0.441119909286499
+    },
+    "2": {
+      "best": [
+        {
+          "active": [
+            18,
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            2,
+            2,
+            0,
+            0
+          ]
+        },
+        {
+          "active": [
+            0,
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            2,
+            1,
+            1,
+            0
+          ]
+        },
+        {
+          "active": [
+            0,
+            1
+          ],
+          "nullities_raw_in4_out4_both4": [
+            2,
+            0,
+            2,
+            0
+          ]
+        },
+        {
+          "active": [
+            17,
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            1,
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "active": [
+            17,
+            18
+          ],
+          "nullities_raw_in4_out4_both4": [
+            1,
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "active": [
+            16,
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            1,
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "active": [
+            15,
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            1,
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "active": [
+            14,
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            1,
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "active": [
+            13,
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            1,
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "active": [
+            12,
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            1,
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "active": [
+            11,
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            1,
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "active": [
+            10,
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            1,
+            1,
+            0,
+            0
+          ]
+        }
+      ],
+      "count": 190,
+      "histogram": {
+        "(0, 0, 0, 0)": 151,
+        "(1, 0, 1, 0)": 18,
+        "(1, 1, 0, 0)": 18,
+        "(2, 0, 2, 0)": 1,
+        "(2, 1, 1, 0)": 1,
+        "(2, 2, 0, 0)": 1
+      },
+      "seconds": 4.347060441970825
+    },
+    "3": {
+      "best": [
+        {
+          "active": [
+            17,
+            18,
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            3,
+            3,
+            0,
+            0
+          ]
+        },
+        {
+          "active": [
+            0,
+            18,
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            3,
+            2,
+            1,
+            0
+          ]
+        },
+        {
+          "active": [
+            0,
+            1,
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            3,
+            1,
+            2,
+            0
+          ]
+        },
+        {
+          "active": [
+            0,
+            1,
+            2
+          ],
+          "nullities_raw_in4_out4_both4": [
+            3,
+            0,
+            3,
+            0
+          ]
+        },
+        {
+          "active": [
+            16,
+            18,
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            2,
+            2,
+            0,
+            0
+          ]
+        },
+        {
+          "active": [
+            16,
+            17,
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            2,
+            2,
+            0,
+            0
+          ]
+        },
+        {
+          "active": [
+            16,
+            17,
+            18
+          ],
+          "nullities_raw_in4_out4_both4": [
+            2,
+            2,
+            0,
+            0
+          ]
+        },
+        {
+          "active": [
+            15,
+            18,
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            2,
+            2,
+            0,
+            0
+          ]
+        },
+        {
+          "active": [
+            14,
+            18,
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            2,
+            2,
+            0,
+            0
+          ]
+        },
+        {
+          "active": [
+            13,
+            18,
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            2,
+            2,
+            0,
+            0
+          ]
+        },
+        {
+          "active": [
+            12,
+            18,
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            2,
+            2,
+            0,
+            0
+          ]
+        },
+        {
+          "active": [
+            11,
+            18,
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            2,
+            2,
+            0,
+            0
+          ]
+        }
+      ],
+      "count": 1140,
+      "histogram": {
+        "(2, 0, 0, 0)": 780,
+        "(2, 0, 1, 0)": 151,
+        "(2, 0, 2, 0)": 18,
+        "(2, 1, 0, 0)": 151,
+        "(2, 1, 1, 0)": 18,
+        "(2, 2, 0, 0)": 18,
+        "(3, 0, 3, 0)": 1,
+        "(3, 1, 2, 0)": 1,
+        "(3, 2, 1, 0)": 1,
+        "(3, 3, 0, 0)": 1
+      },
+      "seconds": 27.000978708267212
+    },
+    "4": {
+      "best": [
+        {
+          "active": [
+            16,
+            17,
+            18,
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            4,
+            4,
+            0,
+            0
+          ]
+        },
+        {
+          "active": [
+            0,
+            17,
+            18,
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            4,
+            3,
+            1,
+            0
+          ]
+        },
+        {
+          "active": [
+            15,
+            17,
+            18,
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            4,
+            3,
+            0,
+            0
+          ]
+        },
+        {
+          "active": [
+            15,
+            16,
+            18,
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            4,
+            3,
+            0,
+            0
+          ]
+        },
+        {
+          "active": [
+            15,
+            16,
+            17,
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            4,
+            3,
+            0,
+            0
+          ]
+        },
+        {
+          "active": [
+            15,
+            16,
+            17,
+            18
+          ],
+          "nullities_raw_in4_out4_both4": [
+            4,
+            3,
+            0,
+            0
+          ]
+        },
+        {
+          "active": [
+            14,
+            17,
+            18,
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            4,
+            3,
+            0,
+            0
+          ]
+        },
+        {
+          "active": [
+            13,
+            17,
+            18,
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            4,
+            3,
+            0,
+            0
+          ]
+        },
+        {
+          "active": [
+            12,
+            17,
+            18,
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            4,
+            3,
+            0,
+            0
+          ]
+        },
+        {
+          "active": [
+            11,
+            17,
+            18,
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            4,
+            3,
+            0,
+            0
+          ]
+        },
+        {
+          "active": [
+            10,
+            17,
+            18,
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            4,
+            3,
+            0,
+            0
+          ]
+        },
+        {
+          "active": [
+            9,
+            17,
+            18,
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            4,
+            3,
+            0,
+            0
+          ]
+        }
+      ],
+      "count": 4845,
+      "histogram": {
+        "(4, 0, 1, 0)": 646,
+        "(4, 0, 2, 0)": 134,
+        "(4, 0, 3, 0)": 17,
+        "(4, 0, 4, 0)": 1,
+        "(4, 1, 0, 0)": 3535,
+        "(4, 1, 1, 0)": 285,
+        "(4, 1, 2, 0)": 35,
+        "(4, 1, 3, 0)": 2,
+        "(4, 2, 0, 0)": 151,
+        "(4, 2, 1, 0)": 18,
+        "(4, 2, 2, 0)": 1,
+        "(4, 3, 0, 0)": 18,
+        "(4, 3, 1, 0)": 1,
+        "(4, 4, 0, 0)": 1
+      },
+      "seconds": 118.12313055992126
+    },
+    "5": {
+      "best": [
+        {
+          "active": [
+            15,
+            16,
+            17,
+            18,
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            6,
+            5,
+            2,
+            1
+          ]
+        },
+        {
+          "active": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "nullities_raw_in4_out4_both4": [
+            6,
+            3,
+            4,
+            1
+          ]
+        },
+        {
+          "active": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "nullities_raw_in4_out4_both4": [
+            6,
+            2,
+            5,
+            1
+          ]
+        },
+        {
+          "active": [
+            14,
+            16,
+            17,
+            18,
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            6,
+            4,
+            2,
+            0
+          ]
+        },
+        {
+          "active": [
+            14,
+            15,
+            17,
+            18,
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            6,
+            4,
+            2,
+            0
+          ]
+        },
+        {
+          "active": [
+            14,
+            15,
+            16,
+            18,
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            6,
+            4,
+            2,
+            0
+          ]
+        },
+        {
+          "active": [
+            14,
+            15,
+            16,
+            17,
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            6,
+            4,
+            2,
+            0
+          ]
+        },
+        {
+          "active": [
+            14,
+            15,
+            16,
+            17,
+            18
+          ],
+          "nullities_raw_in4_out4_both4": [
+            6,
+            4,
+            2,
+            0
+          ]
+        },
+        {
+          "active": [
+            13,
+            16,
+            17,
+            18,
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            6,
+            4,
+            2,
+            0
+          ]
+        },
+        {
+          "active": [
+            12,
+            16,
+            17,
+            18,
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            6,
+            4,
+            2,
+            0
+          ]
+        },
+        {
+          "active": [
+            11,
+            16,
+            17,
+            18,
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            6,
+            4,
+            2,
+            0
+          ]
+        },
+        {
+          "active": [
+            10,
+            16,
+            17,
+            18,
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            6,
+            4,
+            2,
+            0
+          ]
+        }
+      ],
+      "count": 15504,
+      "histogram": {
+        "(6, 2, 2, 0)": 3686,
+        "(6, 2, 3, 0)": 152,
+        "(6, 2, 4, 0)": 18,
+        "(6, 2, 5, 1)": 1,
+        "(6, 3, 2, 0)": 11608,
+        "(6, 3, 3, 0)": 18,
+        "(6, 3, 4, 1)": 1,
+        "(6, 4, 2, 0)": 19,
+        "(6, 5, 2, 1)": 1
+      },
+      "seconds": 385.38428354263306
+    }
+  },
+  "partial_supports_plonky3": {
+    "0": {
+      "best": [
+        {
+          "active": [],
+          "nullities_raw_in4_out4_both4": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "count": 1,
+      "histogram": {
+        "(0, 0, 0, 0)": 1
+      },
+      "seconds": 0.018367528915405273
+    },
+    "1": {
+      "best": [
+        {
+          "active": [
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            1,
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "active": [
+            0
+          ],
+          "nullities_raw_in4_out4_both4": [
+            1,
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "active": [
+            18
+          ],
+          "nullities_raw_in4_out4_both4": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "active": [
+            17
+          ],
+          "nullities_raw_in4_out4_both4": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "active": [
+            16
+          ],
+          "nullities_raw_in4_out4_both4": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "active": [
+            15
+          ],
+          "nullities_raw_in4_out4_both4": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "active": [
+            14
+          ],
+          "nullities_raw_in4_out4_both4": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "active": [
+            13
+          ],
+          "nullities_raw_in4_out4_both4": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "active": [
+            12
+          ],
+          "nullities_raw_in4_out4_both4": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "active": [
+            11
+          ],
+          "nullities_raw_in4_out4_both4": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "active": [
+            10
+          ],
+          "nullities_raw_in4_out4_both4": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "active": [
+            9
+          ],
+          "nullities_raw_in4_out4_both4": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "count": 20,
+      "histogram": {
+        "(0, 0, 0, 0)": 18,
+        "(1, 0, 1, 0)": 1,
+        "(1, 1, 0, 0)": 1
+      },
+      "seconds": 0.3787806034088135
+    },
+    "2": {
+      "best": [
+        {
+          "active": [
+            18,
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            2,
+            2,
+            0,
+            0
+          ]
+        },
+        {
+          "active": [
+            0,
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            2,
+            1,
+            1,
+            0
+          ]
+        },
+        {
+          "active": [
+            0,
+            1
+          ],
+          "nullities_raw_in4_out4_both4": [
+            2,
+            0,
+            2,
+            0
+          ]
+        },
+        {
+          "active": [
+            17,
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            1,
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "active": [
+            17,
+            18
+          ],
+          "nullities_raw_in4_out4_both4": [
+            1,
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "active": [
+            16,
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            1,
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "active": [
+            15,
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            1,
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "active": [
+            14,
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            1,
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "active": [
+            13,
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            1,
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "active": [
+            12,
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            1,
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "active": [
+            11,
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            1,
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "active": [
+            10,
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            1,
+            1,
+            0,
+            0
+          ]
+        }
+      ],
+      "count": 190,
+      "histogram": {
+        "(0, 0, 0, 0)": 151,
+        "(1, 0, 1, 0)": 18,
+        "(1, 1, 0, 0)": 18,
+        "(2, 0, 2, 0)": 1,
+        "(2, 1, 1, 0)": 1,
+        "(2, 2, 0, 0)": 1
+      },
+      "seconds": 3.766392469406128
+    },
+    "3": {
+      "best": [
+        {
+          "active": [
+            17,
+            18,
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            3,
+            3,
+            0,
+            0
+          ]
+        },
+        {
+          "active": [
+            0,
+            18,
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            3,
+            2,
+            1,
+            0
+          ]
+        },
+        {
+          "active": [
+            0,
+            1,
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            3,
+            1,
+            2,
+            0
+          ]
+        },
+        {
+          "active": [
+            0,
+            1,
+            2
+          ],
+          "nullities_raw_in4_out4_both4": [
+            3,
+            0,
+            3,
+            0
+          ]
+        },
+        {
+          "active": [
+            16,
+            18,
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            2,
+            2,
+            0,
+            0
+          ]
+        },
+        {
+          "active": [
+            16,
+            17,
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            2,
+            2,
+            0,
+            0
+          ]
+        },
+        {
+          "active": [
+            16,
+            17,
+            18
+          ],
+          "nullities_raw_in4_out4_both4": [
+            2,
+            2,
+            0,
+            0
+          ]
+        },
+        {
+          "active": [
+            15,
+            18,
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            2,
+            2,
+            0,
+            0
+          ]
+        },
+        {
+          "active": [
+            14,
+            18,
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            2,
+            2,
+            0,
+            0
+          ]
+        },
+        {
+          "active": [
+            13,
+            18,
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            2,
+            2,
+            0,
+            0
+          ]
+        },
+        {
+          "active": [
+            12,
+            18,
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            2,
+            2,
+            0,
+            0
+          ]
+        },
+        {
+          "active": [
+            11,
+            18,
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            2,
+            2,
+            0,
+            0
+          ]
+        }
+      ],
+      "count": 1140,
+      "histogram": {
+        "(2, 0, 0, 0)": 780,
+        "(2, 0, 1, 0)": 151,
+        "(2, 0, 2, 0)": 18,
+        "(2, 1, 0, 0)": 151,
+        "(2, 1, 1, 0)": 18,
+        "(2, 2, 0, 0)": 18,
+        "(3, 0, 3, 0)": 1,
+        "(3, 1, 2, 0)": 1,
+        "(3, 2, 1, 0)": 1,
+        "(3, 3, 0, 0)": 1
+      },
+      "seconds": 23.289231538772583
+    },
+    "4": {
+      "best": [
+        {
+          "active": [
+            16,
+            17,
+            18,
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            4,
+            4,
+            0,
+            0
+          ]
+        },
+        {
+          "active": [
+            0,
+            17,
+            18,
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            4,
+            3,
+            1,
+            0
+          ]
+        },
+        {
+          "active": [
+            15,
+            17,
+            18,
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            4,
+            3,
+            0,
+            0
+          ]
+        },
+        {
+          "active": [
+            15,
+            16,
+            18,
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            4,
+            3,
+            0,
+            0
+          ]
+        },
+        {
+          "active": [
+            15,
+            16,
+            17,
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            4,
+            3,
+            0,
+            0
+          ]
+        },
+        {
+          "active": [
+            15,
+            16,
+            17,
+            18
+          ],
+          "nullities_raw_in4_out4_both4": [
+            4,
+            3,
+            0,
+            0
+          ]
+        },
+        {
+          "active": [
+            14,
+            17,
+            18,
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            4,
+            3,
+            0,
+            0
+          ]
+        },
+        {
+          "active": [
+            13,
+            17,
+            18,
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            4,
+            3,
+            0,
+            0
+          ]
+        },
+        {
+          "active": [
+            12,
+            17,
+            18,
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            4,
+            3,
+            0,
+            0
+          ]
+        },
+        {
+          "active": [
+            11,
+            17,
+            18,
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            4,
+            3,
+            0,
+            0
+          ]
+        },
+        {
+          "active": [
+            10,
+            17,
+            18,
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            4,
+            3,
+            0,
+            0
+          ]
+        },
+        {
+          "active": [
+            9,
+            17,
+            18,
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            4,
+            3,
+            0,
+            0
+          ]
+        }
+      ],
+      "count": 4845,
+      "histogram": {
+        "(4, 0, 1, 0)": 646,
+        "(4, 0, 2, 0)": 134,
+        "(4, 0, 3, 0)": 17,
+        "(4, 0, 4, 0)": 1,
+        "(4, 1, 0, 0)": 3535,
+        "(4, 1, 1, 0)": 285,
+        "(4, 1, 2, 0)": 35,
+        "(4, 1, 3, 0)": 2,
+        "(4, 2, 0, 0)": 151,
+        "(4, 2, 1, 0)": 18,
+        "(4, 2, 2, 0)": 1,
+        "(4, 3, 0, 0)": 18,
+        "(4, 3, 1, 0)": 1,
+        "(4, 4, 0, 0)": 1
+      },
+      "seconds": 102.05668044090271
+    },
+    "5": {
+      "best": [
+        {
+          "active": [
+            15,
+            16,
+            17,
+            18,
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            6,
+            5,
+            2,
+            1
+          ]
+        },
+        {
+          "active": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "nullities_raw_in4_out4_both4": [
+            6,
+            3,
+            4,
+            1
+          ]
+        },
+        {
+          "active": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "nullities_raw_in4_out4_both4": [
+            6,
+            2,
+            5,
+            1
+          ]
+        },
+        {
+          "active": [
+            14,
+            16,
+            17,
+            18,
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            6,
+            4,
+            2,
+            0
+          ]
+        },
+        {
+          "active": [
+            14,
+            15,
+            17,
+            18,
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            6,
+            4,
+            2,
+            0
+          ]
+        },
+        {
+          "active": [
+            14,
+            15,
+            16,
+            18,
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            6,
+            4,
+            2,
+            0
+          ]
+        },
+        {
+          "active": [
+            14,
+            15,
+            16,
+            17,
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            6,
+            4,
+            2,
+            0
+          ]
+        },
+        {
+          "active": [
+            14,
+            15,
+            16,
+            17,
+            18
+          ],
+          "nullities_raw_in4_out4_both4": [
+            6,
+            4,
+            2,
+            0
+          ]
+        },
+        {
+          "active": [
+            13,
+            16,
+            17,
+            18,
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            6,
+            4,
+            2,
+            0
+          ]
+        },
+        {
+          "active": [
+            12,
+            16,
+            17,
+            18,
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            6,
+            4,
+            2,
+            0
+          ]
+        },
+        {
+          "active": [
+            11,
+            16,
+            17,
+            18,
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            6,
+            4,
+            2,
+            0
+          ]
+        },
+        {
+          "active": [
+            10,
+            16,
+            17,
+            18,
+            19
+          ],
+          "nullities_raw_in4_out4_both4": [
+            6,
+            4,
+            2,
+            0
+          ]
+        }
+      ],
+      "count": 15504,
+      "histogram": {
+        "(6, 2, 2, 0)": 3686,
+        "(6, 2, 3, 0)": 152,
+        "(6, 2, 4, 0)": 18,
+        "(6, 2, 5, 1)": 1,
+        "(6, 3, 2, 0)": 11608,
+        "(6, 3, 3, 0)": 18,
+        "(6, 3, 4, 1)": 1,
+        "(6, 4, 2, 0)": 19,
+        "(6, 5, 2, 1)": 1
+      },
+      "seconds": 331.78057956695557
+    }
+  }
+}
