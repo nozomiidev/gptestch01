@@ -1,0 +1,35 @@
+name: Poseidon q4 structural research
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  diagnostic:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Pin the unmodified official verifier
+        run: |
+          git clone https://github.com/khovratovich/poseidon-tools.git official_poseidon_tools
+          git -C official_poseidon_tools checkout 60075da7c0521d9493749a035b1f30d4eda37138
+          test "$(git -C official_poseidon_tools rev-parse HEAD)" = "60075da7c0521d9493749a035b1f30d4eda37138"
+      - name: Run exact diagnostics
+        run: |
+          sed -i 's/generate_circulant_mds_matrix(T, P, plonky_row)/generate_circulant_mds_matrix(plonky_row, P)/' research/poseidon_q4/diagnostic.py
+          python -u research/poseidon_q4/diagnostic.py | tee research/poseidon_q4/diagnostic.log
+      - uses: actions/upload-artifact@v4
+        with:
+          name: poseidon-q4-diagnostic
+          path: |
+            research/poseidon_q4/diagnostic.json
+            research/poseidon_q4/diagnostic.log
+          if-no-files-found: error

@@ -1,0 +1,10 @@
+{
+  "found": false,
+  "seconds": 380.118225812912,
+  "stats": {
+    "alg1_pass": 0,
+    "alg2_pass": 2000,
+    "alg3_pass": 2000,
+    "tested": 2000
+  }
+}

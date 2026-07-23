@@ -1,0 +1,30 @@
+name: Poseidon q4 dump diagnostic
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  actions: read
+  contents: write
+
+jobs:
+  dump:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+      - name: Download and summarize completed diagnostic artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh run download 29982809017 -R nozomiidev/gptestch01 -n poseidon-q4-diagnostic -D /tmp/diag
+          src=/tmp/diag/research/poseidon_q4/diagnostic.json
+          test -f "$src" || src=/tmp/diag/diagnostic.json
+          jq '{parameters,default_krylov_ranks,plonky3_krylov_ranks,q3_hash_x,q3_hash_y,q3_verify,q4_verify_known_pair,partial_supports_default,partial_supports_plonky3}' "$src" > research/poseidon_q4/diagnostic_summary.json
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add research/poseidon_q4/diagnostic_summary.json
+          git commit -m 'Record Poseidon q4 diagnostic summary [skip ci]'
+          git push origin HEAD:${{ github.head_ref }}

@@ -1,0 +1,32 @@
+name: Poseidon q3 exact trace
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  trace:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: |
+          rm -rf official_poseidon_tools
+          git clone --quiet https://github.com/khovratovich/poseidon-tools.git official_poseidon_tools
+          git -C official_poseidon_tools checkout --quiet 60075da7c0521d9493749a035b1f30d4eda37138
+          python -u research/poseidon_q4/trace_q3.py
+      - run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add research/poseidon_q4/q3_trace.json
+          git diff --cached --quiet && exit 0
+          git commit -m 'Record exact q3 collision trace [skip ci]'
+          git pull --rebase origin ${{ github.head_ref }}
+          git push origin HEAD:${{ github.head_ref }}
