@@ -19,11 +19,10 @@ jobs:
           git clone --quiet https://github.com/khovratovich/poseidon-tools.git official
           cd official
           git checkout --quiet 60075da7c0521d9493749a035b1f30d4eda37138
-      - name: Find and verify structured q=4 collision
+      - name: Search scalable structured verifier collisions
         run: |
           cat > /tmp/search.py <<'PY'
           import json
-          import random
           import sys
           sys.path.insert(0, 'official')
 
@@ -36,81 +35,93 @@ jobs:
 
           p = COLLISION_P
           n = COLLISION_TPERM
+          R = COLLISION_RF + COLLISION_RP
 
-          def companion_axb(a, b):
+          def companion(a, b, k):
+              # Characteristic polynomial x^16 + a*x^k + b.
               M = [[0] * n for _ in range(n)]
               for i in range(n - 1):
                   M[i][i + 1] = 1
               M[n - 1][0] = (-b) % p
-              M[n - 1][1] = (-a) % p
+              M[n - 1][k] = (-a) % p
               return M
 
-          def support_after(M, start, rounds):
+          def support_trace(k, start):
               supp = {start}
-              for _ in range(rounds):
-                  supp = {i for i in range(n) if any(M[i][j] % p for j in supp)}
-              return sorted(supp)
+              trace = [sorted(supp)]
+              for _ in range(R):
+                  nxt = {j - 1 for j in supp if j > 0}
+                  if 0 in supp or k in supp:
+                      nxt.add(n - 1)
+                  supp = nxt
+                  trace.append(sorted(supp))
+              return trace
 
-          rng = random.Random(0xC09DE4)
-          candidates = [(a, 1) for a in range(1, 200)]
-          candidates += [(rng.randrange(1, p), rng.randrange(1, p)) for _ in range(500)]
-          found = None
-          for idx, (a, b) in enumerate(candidates):
-              f = [b % p, a % p] + [0] * 14 + [1]
-              if not _poly_is_irreducible(f, p):
-                  continue
-              M = companion_axb(a, b)
-              if _char_poly(M, p) != f:
-                  raise RuntimeError('companion orientation error')
-              support = support_after(M, 4, COLLISION_RF + COLLISION_RP)
-              if any(i < 4 for i in support):
-                  continue
-              if verify_mds_matrix(M, p):
-                  found = (idx, a, b, M, support)
-                  break
-          if found is None:
-              raise RuntimeError('no accepted companion matrix found')
+          def find_for_q(q):
+              support_candidates = []
+              for k in range(1, n):
+                  for start in range(q, n):
+                      tr = support_trace(k, start)
+                      if all(i >= q for i in tr[-1]):
+                          support_candidates.append((len(tr[-1]), k, start, tr[-1]))
+              support_candidates.sort()
+              for _, k, start, final_support in support_candidates:
+                  for b in range(1, 9):
+                      for a in range(1, 400):
+                          f = [0] * (n + 1)
+                          f[0] = b
+                          f[k] = a
+                          f[n] = 1
+                          if not _poly_is_irreducible(f, p):
+                              continue
+                          M = companion(a, b, k)
+                          if _char_poly(M, p) != f:
+                              raise RuntimeError('companion orientation error')
+                          if not verify_mds_matrix(M, p):
+                              continue
+                          X = [0] * 15
+                          Y = [0] * 15
+                          Y[start - 1] = 1
+                          ok = verify_collision_solution(
+                              X, Y, t=q, prime=p, ell=COLLISION_ELL,
+                              r_f=COLLISION_RF, r_p=COLLISION_RP,
+                              t_perm=n, alpha=COLLISION_ALPHA, mds=M,
+                          )
+                          if not ok:
+                              continue
+                          pos = Poseidon(prime=p, alpha=COLLISION_ALPHA, t=n,
+                                         r_f=COLLISION_RF, r_p=COLLISION_RP, mds=M)
+                          hx = _hash(X, pos, p, COLLISION_ELL, n)
+                          hy = _hash(Y, pos, p, COLLISION_ELL, n)
+                          return {
+                              'q': q, 'k': k, 'a': a, 'b': b,
+                              'start_state_coordinate': start,
+                              'message_coordinate': start - 1,
+                              'support_after_28': final_support,
+                              'X': X, 'Y': Y,
+                              'H_X_prefix': hx[:q], 'H_Y_prefix': hy[:q],
+                              'verify': ok,
+                              'has_zero_entry': any(v == 0 for row in M for v in row),
+                              'matrix_last_row': M[-1],
+                          }
+              return None
 
-          idx, a, b, M, support = found
-          X = [0] * 15
-          Y = [0] * 15
-          Y[3] = 1
-          ok = verify_collision_solution(
-              X, Y, t=4, prime=p, ell=COLLISION_ELL,
-              r_f=COLLISION_RF, r_p=COLLISION_RP,
-              t_perm=n, alpha=COLLISION_ALPHA, mds=M,
-          )
-          pos = Poseidon(prime=p, alpha=COLLISION_ALPHA, t=n,
-                         r_f=COLLISION_RF, r_p=COLLISION_RP, mds=M)
-          hx = _hash(X, pos, p, COLLISION_ELL, n)
-          hy = _hash(Y, pos, p, COLLISION_ELL, n)
-          result = {
-              'official_commit': '60075da7c0521d9493749a035b1f30d4eda37138',
-              'candidate_index': idx,
-              'a': a,
-              'b': b,
-              'support_after_28': support,
-              'X': X,
-              'Y': Y,
-              'H_X': hx,
-              'H_Y': hy,
-              'H_X_first4': hx[:4],
-              'H_Y_first4': hy[:4],
-              'verify_collision_solution_t4': ok,
-              'matrix': M,
-          }
-          with open('poseidon-q4-result.json', 'w') as f:
-              json.dump(result, f, indent=2)
-          print(json.dumps({k: v for k, v in result.items() if k != 'matrix'}, indent=2))
-          if not ok:
-              raise RuntimeError('official verifier rejected candidate')
+          results = []
+          for q in range(4, 16):
+              r = find_for_q(q)
+              results.append(r)
+              print('q', q, '=>', None if r is None else {k:v for k,v in r.items() if k not in ('X','Y')}, flush=True)
+
+          with open('poseidon-prefix-results.json', 'w') as f:
+              json.dump({'official_commit':'60075da7c0521d9493749a035b1f30d4eda37138',
+                         'results':results}, f, indent=2)
           PY
           python /tmp/search.py
       - name: Upload exact result
         uses: actions/upload-artifact@v4
         with:
-          name: poseidon-q4-result
-          path: poseidon-q4-result.json
+          name: poseidon-prefix-results
+          path: poseidon-prefix-results.json
           retention-days: 1
       - name: Post exact result to temporary PR
         if: github.event_name == 'pull_request'
@@ -119,7 +130,7 @@ jobs:
         run: |
           {
             echo '```json'
-            cat poseidon-q4-result.json
+            cat poseidon-prefix-results.json
             echo '```'
           } > /tmp/comment.md
           gh pr comment "${{ github.event.pull_request.number }}" --body-file /tmp/comment.md
