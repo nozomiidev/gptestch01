@@ -1,0 +1,24 @@
+name: Poseidon q4 dump diagnostic
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  dump:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download completed diagnostic artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh run download 29982809017 -R nozomiidev/gptestch01 -n poseidon-q4-diagnostic -D /tmp/diag
+          echo '=== diagnostic.json ==='
+          cat /tmp/diag/research/poseidon_q4/diagnostic.json || cat /tmp/diag/diagnostic.json
+          echo '=== selected log lines ==='
+          grep -E 'official_sha|default_mds|rc0|rc_last|krylov|q3_|q4_|^k=|hist|best|wrote' /tmp/diag/research/poseidon_q4/diagnostic.log /tmp/diag/diagnostic.log 2>/dev/null || true
