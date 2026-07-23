@@ -4,6 +4,10 @@ on:
   pull_request:
   workflow_dispatch:
 
+permissions:
+  contents: read
+  pull-requests: write
+
 jobs:
   search:
     runs-on: ubuntu-latest
@@ -108,3 +112,14 @@ jobs:
           name: poseidon-q4-result
           path: poseidon-q4-result.json
           retention-days: 1
+      - name: Post exact result to temporary PR
+        if: github.event_name == 'pull_request'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          {
+            echo '```json'
+            cat poseidon-q4-result.json
+            echo '```'
+          } > /tmp/comment.md
+          gh pr comment "${{ github.event.pull_request.number }}" --body-file /tmp/comment.md
